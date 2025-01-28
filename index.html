@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cortan Transactions</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #4c00c9, #370093);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+      transform: rotate(45deg);
+      animation: background-animation 10s linear infinite;
+    }
+
+    @keyframes background-animation {
+      0% {
+        transform: rotate(45deg);
+      }
+      100% {
+        transform: rotate(405deg);
+      }
+    }
+
+    .container {
+      position: relative;
+      background: #ffffff;
+      color: #333;
+      border-radius: 20px;
+      padding: 25px 35px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #4c00c9;
+      margin-bottom: 15px;
+    }
+
+    .balance {
+      font-size: 1.6em;
+      margin: 25px 0;
+      font-weight: bold;
+      color: #4c00c9;
+    }
+
+    .transaction-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 1.1em;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #4c00c9;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #4c00c9;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #370093;
+      transform: scale(1.05);
+    }
+
+    .history {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    .history h2 {
+      font-size: 1.3em;
+      margin-bottom: 12px;
+      color: #4c00c9;
+    }
+
+    .history ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .history li {
+      background: #f8f8f8;
+      color: #333;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      border-left: 4px solid #4c00c9;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.85em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cortan Transactions</h1>
+    <div class="balance">Balance: ₱<span id="balance">5000</span></div>
+    <form class="transaction-form" id="transactionForm">
+      <input type="number" id="amount" placeholder="Enter amount" required>
+      <button type="button" id="deposit">Deposit</button>
+      <button type="button" id="withdraw">Withdraw</button>
+    </form>
+    <div class="history">
+      <h2>Transaction History</h2>
+      <ul id="history"></ul>
+    </div>
+    <footer>
+      Powered by Cortan | Designed for your financial needs
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
