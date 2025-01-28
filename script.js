@@ -1,47 +1,66 @@
-const balanceElement = document.getElementById('balance');
-const historyElement = document.getElementById('history');
-const amountInput = document.getElementById('amount');
-const depositButton = document.getElementById('deposit');
-const withdrawButton = document.getElementById('withdraw');
+function showHome() {
+    document.querySelector('.hero').style.display = 'block';
+    document.querySelector('.demo-container').style.display = 'none';
+}
 
-let balance = 5000;
-let transactionHistory = [];
+function showDemo() {
+    document.querySelector('.hero').style.display = 'none';
+    document.querySelector('.demo-container').style.display = 'block';
+    initDemo(); 
+}
 
-const updateUI = () => {
-  balanceElement.textContent = balance.toFixed(2);
-  historyElement.innerHTML = transactionHistory
-    .map((tx, index) => `<li>${index + 1}. ${tx.type}: ₱${tx.amount.toFixed(2)} (${tx.date})</li>`)
-    .join('');
-};
+function initDemo() {
+    let balance = 5000;
+    let transactionCount = 0;
+    const balanceElement = document.getElementById("balance");
+    const historyTable = document.getElementById("transaction-history");
 
-const addTransaction = (type, amount) => {
-  if (amount <= 0) {
-    alert('Please enter a valid amount.');
-    return;
-  }
+    function updateBalance(amount, type) {
+        transactionCount++;
 
-  if (type === 'Withdraw' && amount > balance) {
-    alert('Insufficient balance.');
-    return;
-  }
+        if (type === "Deposit") {
+            balance += amount;
+        } else if (type === "Withdraw") {
+            if (amount > balance) {
+                alert("Insufficient funds!");
+                return;
+            }
+            balance -= amount;
+        }
 
-  balance += type === 'Deposit' ? amount : -amount;
-  const date = new Date().toLocaleString();
-  transactionHistory.unshift({ type, amount, date });
-  updateUI();
-};
+        balanceElement.textContent = balance;
 
-depositButton.addEventListener('click', () => {
-  const amount = parseFloat(amountInput.value);
-  if (!isNaN(amount)) addTransaction('Deposit', amount);
-  amountInput.value = '';
-});
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${transactionCount}</td>
+            <td>${type}</td>
+            <td>$${amount.toFixed(2)}</td>
+            <td>$${balance.toFixed(2)}</td>
+        `;
+        historyTable.appendChild(newRow);
+    }
 
-withdrawButton.addEventListener('click', () => {
-  const amount = parseFloat(amountInput.value);
-  if (!isNaN(amount)) addTransaction('Withdraw', amount);
-  amountInput.value = '';
-});
+    document.getElementById("deposit").addEventListener("click", () => {
+        const amount = parseFloat(document.getElementById("amount").value);
+        if (!amount || amount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
+        updateBalance(amount, "Deposit");
+        document.getElementById("amount").value = "";
+    });
 
-// Initialize the UI
-updateUI();
+    document.getElementById("withdraw").addEventListener("click", () => {
+        const amount = parseFloat(document.getElementById("amount").value);
+        if (!amount || amount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
+        updateBalance(amount, "Withdraw");
+        document.getElementById("amount").value = "";
+    });
+
+    console.log("Demo loaded successfully.");
+}
+
+showHome();
