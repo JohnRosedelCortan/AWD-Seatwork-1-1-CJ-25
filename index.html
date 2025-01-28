@@ -1,29 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cortan Transactions</title>
- 
-</head>
-<body>
-  <div class="container">
-    <h1>Cortan Transactions</h1>
-    <div class="balance">Balance: ₱<span id="balance">5000</span></div>
-    <form class="transaction-form" id="transactionForm">
-      <input type="number" id="amount" placeholder="Enter amount" required>
-      <button type="button" id="deposit">Deposit</button>
-      <button type="button" id="withdraw">Withdraw</button>
-    </form>
-    <div class="history">
-      <h2>Transaction History</h2>
-      <ul id="history"></ul>
-    </div>
-    <footer>
-      Powered by Cortan | Designed for your financial needs
-    </footer>
-  </div>
 
-  <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortan Transactions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#home" onclick="showHome()">Home</a>
+            <a href="#demo" onclick="showDemo()">Demo</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Cortan Transactions</h1>
+        <p>Secure, Simple, and Effective Financial Management.</p>
+        <button onclick="showDemo()">Try the Demo</button>
+    </section>
+
+    <div id="demo" class="demo-container">
+        <div class="demo-header">
+            <h1>Cortan Transactions Demo</h1>
+            <p>Manage your account balance with secure and real-time updates.</p>
+        </div>
+
+        <div class="balance">
+            Current Balance: $<span id="balance">5000</span>
+        </div>
+
+        <div class="transaction-form">
+            <input type="number" id="amount" placeholder="Enter amount" min="1">
+            <button id="deposit">Deposit</button>
+            <button id="withdraw">Withdraw</button>
+        </div>
+
+        <div class="history">
+            <h2>Transaction History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-history">
+                    <!-- Transaction history will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Cortan Transactions. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
