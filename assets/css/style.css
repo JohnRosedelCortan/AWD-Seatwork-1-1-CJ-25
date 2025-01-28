@@ -33,7 +33,7 @@ header {
 }
 
 .navbar a:hover {
-    color: #038eff;
+    color: #0f2c7a; /* Change the hover color for better visibility */
 }
 
 .hero {
@@ -70,7 +70,7 @@ header {
 }
 
 .hero button:hover {
-    background-color: #038eff;
+    background-color: #0f2c7a; /* Darker hover color */
     transform: scale(1.05);
 }
 
@@ -132,7 +132,7 @@ header {
 }
 
 .transaction-form button:hover {
-    background-color: #038eff;
+    background-color: #0f2c7a; /* Darker hover color */
     transform: scale(1.05);
 }
 
