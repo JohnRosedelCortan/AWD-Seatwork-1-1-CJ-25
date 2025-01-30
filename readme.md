@@ -14,7 +14,7 @@
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. The Cortan Transactions Website is a simple and user-friendly platform for managing account transactions. It allows users to start with an initial balance, perform deposits and withdrawals, and view a detailed transaction history in real time. Designed with a professional and engaging interface, it ensures a smooth financial management experience.
+  The Cortan Transactions Website is a simple and user-friendly platform for managing account transactions. It allows users to start with an initial balance, perform deposits and withdrawals, and view a detailed transaction history in real time. Designed with a professional and engaging interface, it ensures a smooth financial management experience.
 </div>
 
 <br />
