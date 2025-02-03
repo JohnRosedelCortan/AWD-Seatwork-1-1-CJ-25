@@ -70,7 +70,7 @@ header {
 }
 
 .hero button:hover {
-    background-color: #0f2c7a; /* Darker hover color */
+    background-color: #0f2c7a; 
     transform: scale(1.05);
 }
 
@@ -132,7 +132,7 @@ header {
 }
 
 .transaction-form button:hover {
-    background-color: #0f2c7a; /* Darker hover color */
+    background-color: #0f2c7a; 
     transform: scale(1.05);
 }
 
